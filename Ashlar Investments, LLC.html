@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashlar Investments, LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .company-name {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-top: 20px;
+            animation: fadeInUp 1.5s ease 0.5s both;
+            font-family: 'Times New Roman', 'Georgia', serif;
+            letter-spacing: 0.1em;
+        }
+
+        .company-subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease 1s both;
+            font-family: 'Times New Roman', 'Georgia', serif;
+            letter-spacing: 0.1em;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy {
+            background: white;
+        }
+
+        .philosophy h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .philosophy-content {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-family: 'Crimson Text', 'Georgia', serif;
+        }
+
+        .highlight {
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .strategies {
+            background: #f8f9fa;
+        }
+
+        .strategies h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .combined-strategies {
+            background: white;
+        }
+
+        .combined-strategies h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .combined-image {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .info-link {
+            background: #f8f9fa;
+            padding: 100px 20px;
+        }
+
+        .info-link-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-link h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="logo-container">
+            <img class="logo" id="ashlarLogo" alt="Ashlar Investments Logo" style="width: 200px; height: 200px; object-fit: contain;">
+        </div>
+        <h1 class="company-name">ASHLAR INVESTMENTS</h1>
+        <p class="company-subtitle">LLC</p>
+    </section>
+
+    <!-- Investment Philosophy Section -->
+    <section class="section philosophy">
+        <div class="content-section">
+            <h2>Investment Philosophy</h2>
+            <div class="philosophy-content">
+                <p>We are an initial stage hedge fund utilizing <span class="highlight">dual momentum equity selections</span> combined with <span class="highlight">tactical short volatility options overlay</span>.</p>
+                <br>
+                <p>Our target is <span class="highlight">30% annualized returns</span> with a <span class="highlight">Sharpe ratio exceeding 1.5</span>, built on two core principles:</p>
+                <br>
+                <p><strong>Market Inefficiency Exploitation:</strong> We believe markets exhibit persistent momentum patterns that can be quantitatively identified and exploited.</p>
+                <br>
+                <p><strong>Volatility Risk Premium:</strong> Short-dated options consistently overprice actual realized volatility, creating a persistent opportunity for disciplined options sellers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategies Section -->
+    <section class="section strategies">
+        <div class="content-section">
+            <h2>Alpha Overlay: Short Volatility Options Strategy</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 50px; color: #666;">
+                Our fund incorporates five different baskets of option strategies, all trading on index options (primarily SPX), 
+                which we define as <strong>"Tharapita"</strong>.
+            </p>
+            
+            <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 60px;">
+                <!-- Paike Strategy - Image Left -->
+                <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                    <img src="" class="strategy-image" id="paikeImg" alt="Paike Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Paike Strategy</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                            Focuses on extremely short days to expiration (0dte), primarily short volatility strategies. 
+                            All positions closed before market closure each day, removing overnight risk exposure.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Kuu Strategy - Image Right -->
+                <div style="display: grid; grid-template-columns: 1fr 120px; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kuu Strategy</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                            Short days to expiration (0-1dte), combination of short and long volatility strategies. 
+                            Holds positions overnight to capture the "Weekend Effect" and "Overnight Effect".
+                        </p>
+                    </div>
+                    <img src="" class="strategy-image" id="kuuImg" alt="Kuu Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                </div>
+                
+                <!-- Kratt Strategy - Image Left -->
+                <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                    <img src="" class="strategy-image" id="krattImg" alt="Kratt Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kratt Strategy</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                            Mid-term expiration (1-14dte), largely long volatility strategies. 
+                            Acts as hedge positions and capitalizes on sudden trending markets.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Kou Strategy - Image Right -->
+                <div style="display: grid; grid-template-columns: 1fr 120px; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kou Strategy</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                            Longer-term expiration (100+dte), market neutral strategies. 
+                            Takes advantage of relatively calm market environments.
+                        </p>
+                    </div>
+                    <img src="" class="strategy-image" id="kouImg" alt="Kou Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                </div>
+                
+                <!-- Pikker Strategy - Image Left -->
+                <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center;">
+                    <img src="" class="strategy-image" id="pikkerImg" alt="Pikker Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Pikker Strategy</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                            Mid-term expiration (1-7dte), focusing on harvesting weighted vega. 
+                            Complements existing short and long volatility strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Strategies Visualization -->
+    <section class="section combined-strategies">
+        <div class="content-section">
+            <h2>Integrated Strategy Framework</h2>
+            <div class="combined-image">
+                <img id="groupLogoImg" alt="Integrated Strategy Framework" style="width: 100%; max-width: 500px; height: auto;">
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Our five complementary strategies work in harmony, providing diversified exposure across different 
+                time horizons and market conditions while maintaining our core focus on volatility premium capture.
+            </p>
+        </div>
+    </section>
+
+    <!-- Information Link Section -->
+    <section class="section info-link">
+        <div class="info-link-content">
+            <h2>Detailed Performance & Operations</h2>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">
+                Access comprehensive performance history, risk management framework, team credentials, and operational infrastructure details.
+            </p>
+            <button class="btn-primary" onclick="alert('Further information page coming soon!')">Further Information and Statistics</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact">
+        <div class="content-section">
+            <h2>Investment Interest</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9;">
+                If you're interested in learning more or exploring investment opportunities, please provide your information below.
+            </p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest">Investment Interest Level *</label>
+                    <select id="interest" name="interest" required style="color: #333;">
+                        <option value="">Select your interest level</option>
+                        <option value="information">Just seeking information</option>
+                        <option value="serious">Seriously considering investment</option>
+                        <option value="ready">Ready to discuss investment terms</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">Potential Investment Range</label>
+                    <select id="amount" name="amount" style="color: #333;">
+                        <option value="">Select range (optional)</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="100k-250k">$100,000 - $250,000</option>
+                        <option value="250k-500k">$250,000 - $500,000</option>
+                        <option value="500k+">$500,000+</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Comments</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Any specific questions or comments..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary">Submit Information Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Disclaimer Footer -->
+    <footer style="background: #2c3e50; color: #bdc3c7; padding: 30px 20px; text-align: center; font-size: 0.9rem; line-height: 1.6;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <p style="margin: 0;">*Copyright 2025 Ashlar Investments, LLC. All information contained is proprietary and confidential. Any information contained herein does not constitute an offer to sell or solicitation of an offer to buy securities. Investing involves risk, including the potential loss of principal, and does not contemplate any individuals personal risk or circumstances. Consult your own advisor.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Show first section immediately
+        document.querySelector('.hero').classList.add('visible');
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create email content
+            const emailBody = `
+New Investment Interest Form Submission:
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Interest Level: ${data.interest}
+Investment Range: ${data.amount || 'Not specified'}
+
+Comments:
+${data.message || 'None provided'}
+            `;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:justinwkay@gmail.com?subject=Investment Interest - ${data.name}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Thank you for your interest! Your default email client should open with the message pre-filled. If it doesn\'t open automatically, please send your information directly to justinwkay@gmail.com');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Load all strategy images and logos
+        document.addEventListener('DOMContentLoaded', async function() {
+            const logoImg = document.getElementById('ashlarLogo');
+            
+            // Load main logo
+            try {
+                const imageData = await window.fs.readFile('Ashlar Logo.jpg');
+                const blob = new Blob([imageData], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                logoImg.src = imageUrl;
+                console.log('Ashlar logo loaded successfully');
+            } catch (error) {
+                console.log('Error loading Ashlar logo:', error);
+            }
+
+            // Load strategy images
+            const strategyImages = [
+                { id: 'paikeImg', filename: 'Paike.jpg' },
+                { id: 'kuuImg', filename: 'Kuu.jpg' },
+                { id: 'krattImg', filename: 'Kratt.jpg' },
+                { id: 'kouImg', filename: 'Kou.jpg' },
+                { id: 'pikkerImg', filename: 'Pikker.jpg' }
+            ];
+
+            for (const { id, filename } of strategyImages) {
+                try {
+                    const imageData = await window.fs.readFile(filename);
+                    const blob = new Blob([imageData], { type: 'image/jpeg' });
+                    const imageUrl = URL.createObjectURL(blob);
+                    document.getElementById(id).src = imageUrl;
+                    console.log(`${filename} loaded successfully`);
+                } catch (error) {
+                    console.log(`Error loading ${filename}:`, error);
+                }
+            }
+
+            // Load group logo
+            try {
+                const groupImageData = await window.fs.readFile('Group Logo.jpg');
+                const blob = new Blob([groupImageData], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                document.getElementById('groupLogoImg').src = imageUrl;
+                console.log('Group logo loaded successfully');
+            } catch (error) {
+                console.log('Error loading group logo:', error);
+            }
+        });
+
+        // Smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>

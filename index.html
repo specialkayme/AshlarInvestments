@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashlar Investments, LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #2c3e50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .company-name {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-top: 20px;
+            animation: fadeInUp 1.5s ease 0.5s both;
+            font-family: 'Times New Roman', 'Georgia', serif;
+            letter-spacing: 0.1em;
+        }
+
+        .company-subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease 1s both;
+            font-family: 'Times New Roman', 'Georgia', serif;
+            letter-spacing: 0.1em;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy {
+            background: white;
+        }
+
+        .philosophy h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .philosophy-content {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-family: 'Crimson Text', 'Georgia', serif;
+        }
+
+        .highlight {
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .strategies {
+            background: #f8f9fa;
+        }
+
+        .strategies h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .combined-strategies {
+            background: white;
+        }
+
+        .combined-strategies h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .combined-image {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .info-link {
+            background: #f8f9fa;
+            padding: 100px 20px;
+        }
+
+        .info-link-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-link h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        .info-page {
+            display: none;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-page.active {
+            display: block;
+        }
+
+        .back-btn {
+            margin-bottom: 40px;
+        }
+
+        .info-section {
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-section h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .info-section h4 {
+            font-size: 1.3rem;
+            color: #34495e;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .info-section p, .info-section li {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            padding-left: 25px;
+        }
+
+        .performance-chart {
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            padding: 30px;
+            margin: 30px auto;
+            text-align: center;
+            overflow-x: auto;
+            max-width: 1100px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .performance-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 2px solid #ddd;
+            font-size: 0.95rem;
+        }
+
+        .performance-table th {
+            padding: 15px 10px;
+            background: #2c3e50;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .performance-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .performance-table .metric-label {
+            text-align: left;
+            font-weight: bold;
+            background: #f8f9fa;
+            padding-left: 20px;
+        }
+
+        .correlation-table {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+
+        .correlation-table th,
+        .correlation-table td {
+            padding: 10px 8px;
+            text-align: center;
+        }
+
+        .strategy-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 40px 15px;
+            }
+            
+            .performance-table,
+            .correlation-table {
+                font-size: 0.75rem;
+            }
+            
+            .performance-table th,
+            .performance-table td,
+            .correlation-table th,
+            .correlation-table td {
+                padding: 6px 4px;
+            }
+
+            .strategy-row {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+                gap: 15px !important;
+            }
+        }
+
+        .strategy-row {
+            display: grid;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .strategy-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .strategy-left {
+            grid-template-columns: 120px 1fr;
+            gap: 30px;
+        }
+
+        .strategy-right {
+            grid-template-columns: 1fr 120px;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="section hero">
+            <div class="logo-container">
+            <img class="logo" id="ashlarLogo" alt="Ashlar Investments Logo" style="width: 200px; height: 200px; object-fit: contain;" src="">
+        </div>
+            <h1 class="company-name">ASHLAR INVESTMENTS</h1>
+            <p class="company-subtitle">LLC</p>
+        </section>
+
+        <!-- Investment Philosophy Section -->
+        <section class="section philosophy">
+            <div class="content-section">
+                <h2>Investment Philosophy</h2>
+                <div class="philosophy-content">
+                    <p>We are an initial stage hedge fund utilizing <span class="highlight">dual momentum equity selections</span> combined with <span class="highlight">tactical short volatility options overlay</span>.</p>
+                    <br>
+                    <p>Our target is <span class="highlight">30% annualized returns</span> with a <span class="highlight">Sharpe ratio exceeding 1.5</span>, built on two core principles:</p>
+                    <br>
+                    <p><strong>Market Inefficiency Exploitation:</strong> We believe markets exhibit persistent momentum patterns that can be quantitatively identified and exploited.</p>
+                    <br>
+                    <p><strong>Volatility Risk Premium:</strong> Short-dated options consistently overprice actual realized volatility, creating a persistent opportunity for disciplined options sellers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategies Section -->
+        <section class="section strategies">
+            <div class="content-section">
+                <h2>Alpha Overlay: Short Volatility Options Strategy</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 50px; color: #666;">
+                    Our fund incorporates five different baskets of option strategies, all trading on index options (primarily SPX), 
+                    which we define as <strong>"Tharapita"</strong>.
+                </p>
+                
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 60px;">
+                    <!-- Paike Strategy - Image Left -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                        <img src="" class="strategy-image" id="paikeImg" alt="Paike Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Paike Strategy</h3>
+                            <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                                Focuses on extremely short days to expiration (0dte), primarily short volatility strategies. 
+                                All positions closed before market closure each day, removing overnight risk exposure.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Kuu Strategy - Image Right -->
+                    <div style="display: grid; grid-template-columns: 1fr 120px; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kuu Strategy</h3>
+                            <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                                Short days to expiration (0-1dte), combination of short and long volatility strategies. 
+                                Holds positions overnight to capture the "Weekend Effect" and "Overnight Effect".
+                            </p>
+                        </div>
+                        <img src="" class="strategy-image" id="kuuImg" alt="Kuu Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Kratt Strategy - Image Left -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                        <img src="" class="strategy-image" id="krattImg" alt="Kratt Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kratt Strategy</h3>
+                            <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                                Mid-term expiration (1-14dte), largely long volatility strategies. 
+                                Acts as hedge positions and capitalizes on sudden trending markets.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Kou Strategy - Image Right -->
+                    <div style="display: grid; grid-template-columns: 1fr 120px; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 2px solid #ecf0f1;">
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Kou Strategy</h3>
+                            <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                                Longer-term expiration (100+dte), market neutral strategies. 
+                                Takes advantage of relatively calm market environments.
+                            </p>
+                        </div>
+                        <img src="" class="strategy-image" id="kouImg" alt="Kou Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Pikker Strategy - Image Left -->
+                    <div style="display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: center;">
+                        <img src="" class="strategy-image" id="pikkerImg" alt="Pikker Strategy" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 600; color: #2c3e50; margin-bottom: 15px; font-family: 'Playfair Display', 'Times New Roman', serif;">Pikker Strategy</h3>
+                            <p style="color: #666; line-height: 1.7; font-size: 1.1rem;">
+                                Mid-term expiration (1-7dte), focusing on harvesting weighted vega. 
+                                Complements existing short and long volatility strategies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Strategies Visualization -->
+        <section class="section combined-strategies">
+            <div class="content-section">
+                <h2>Integrated Strategy Framework</h2>
+                <div class="combined-image">
+                    <img id="groupLogoImg" alt="Integrated Strategy Framework" style="width: 100%; max-width: 500px; height: auto;" src="">
+                </div>
+                <p style="margin-top: 30px; font-size: 1.1rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Our five complementary strategies work in harmony, providing diversified exposure across different 
+                    time horizons and market conditions while maintaining our core focus on volatility premium capture.
+                </p>
+            </div>
+        </section>
+
+        <!-- Information Link Section -->
+        <section class="section info-link">
+            <div class="info-link-content">
+                <h2>Detailed Performance & Operations</h2>
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;">
+                    Access comprehensive performance history, risk management framework, team credentials, and operational infrastructure details.
+                </p>
+                <button class="btn-primary" onclick="showInfoPage()">Further Information and Statistics</button>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact">
+            <div class="content-section">
+                <h2>Investment Interest</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9;">
+                    If you're interested in learning more or exploring investment opportunities, please provide your information below.
+                </p>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Investment Interest Level *</label>
+                        <select id="interest" name="interest" required style="color: #333;">
+                            <option value="">Select your interest level</option>
+                            <option value="information">Just seeking information</option>
+                            <option value="serious">Seriously considering investment</option>
+                            <option value="ready">Ready to discuss investment terms</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Potential Investment Range</label>
+                        <select id="amount" name="amount" style="color: #333;">
+                            <option value="">Select range (optional)</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k-250k">$100,000 - $250,000</option>
+                            <option value="250k-500k">$250,000 - $500,000</option>
+                            <option value="500k+">$500,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Comments</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any specific questions or comments..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Submit Information Request</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Disclaimer Footer -->
+        <footer style="background: #2c3e50; color: #bdc3c7; padding: 30px 20px; text-align: center; font-size: 0.9rem; line-height: 1.6;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <p style="margin: 0;">*Copyright 2025 Ashlar Investments, LLC. All information contained is proprietary and confidential. Any information contained herein does not constitute an offer to sell or solicitation of an offer to buy securities. Investing involves risk, including the potential loss of principal, and does not contemplate any individuals personal risk or circumstances. Consult your own advisor.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Information Page -->
+    <div class="info-page" id="infoPage">
+        <button class="btn-primary back-btn" onclick="showMainPage()">← Back to Main</button>
+        
+        <div class="info-section">
+            <h3>Performance History</h3>
+            
+            <h4>Backtest Results - Annual Performance (2020-2024)</h4>
+            <div class="performance-chart">
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Metric</th>
+                            <th>2020</th>
+                            <th>2021</th>
+                            <th>2022</th>
+                            <th>2023</th>
+                            <th>2024</th>
+                            <th>5-Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #ecf0f1;">
+                            <td colspan="7" style="padding: 10px; font-weight: bold; text-align: center; color: #2c3e50;">ASHLAR FUND - TESTED DATA</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">CAGR</td>
+                            <td style="color: #27ae60; font-weight: bold;">28.60%</td>
+                            <td style="color: #27ae60; font-weight: bold;">36.70%</td>
+                            <td style="color: #27ae60; font-weight: bold;">71.70%</td>
+                            <td style="color: #27ae60; font-weight: bold;">58.00%</td>
+                            <td style="color: #27ae60; font-weight: bold;">46.10%</td>
+                            <td style="color: #27ae60; font-weight: bold; font-size: 1rem;">46.50%</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td class="metric-label">Max DD</td>
+                            <td>-7.30%</td>
+                            <td>-4.70%</td>
+                            <td>-2.30%</td>
+                            <td>-2.50%</td>
+                            <td>-1.00%</td>
+                            <td style="font-weight: bold;">-7.30%</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">Sharpe Ratio</td>
+                            <td>2.26</td>
+                            <td>4.06</td>
+                            <td>5.63</td>
+                            <td>5.29</td>
+                            <td>6.61</td>
+                            <td style="font-weight: bold;">4.41</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td class="metric-label">MAR Ratio</td>
+                            <td style="color: #9b59b6;">3.9</td>
+                            <td style="color: #9b59b6;">7.8</td>
+                            <td style="color: #9b59b6;">31.9</td>
+                            <td style="color: #9b59b6;">22.9</td>
+                            <td style="color: #9b59b6;">44.4</td>
+                            <td style="color: #9b59b6; font-weight: bold;">6.3</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">Correlation</td>
+                            <td>0.20</td>
+                            <td>0.41</td>
+                            <td>0.17</td>
+                            <td>0.35</td>
+                            <td>0.33</td>
+                            <td style="font-weight: bold;">0.23</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td class="metric-label">Beta</td>
+                            <td>0.07</td>
+                            <td>0.24</td>
+                            <td>0.07</td>
+                            <td>0.23</td>
+                            <td>0.15</td>
+                            <td style="font-weight: bold;">0.10</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">Volatility</td>
+                            <td>11.36%</td>
+                            <td>7.71%</td>
+                            <td>8.66%</td>
+                            <td>5.74%</td>
+                            <td>6.97%</td>
+                            <td style="font-weight: bold;">8.74%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 25px auto; max-width: 600px;">
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; border-radius: 12px;">
+                        <h5 style="margin-bottom: 8px; font-size: 0.9rem;">Return Advantage</h5>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 8px 0;">4.3x</p>
+                        <p style="margin: 0; font-size: 0.85rem;">vs S&P 500</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #3498db, #2980b9); color: white; border-radius: 12px;">
+                        <h5 style="margin-bottom: 8px; font-size: 0.9rem;">Drawdown Protection</h5>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 8px 0;">4.6x</p>
+                        <p style="margin: 0; font-size: 0.85rem;">Better Max DD</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border-radius: 12px;">
+                        <h5 style="margin-bottom: 8px; font-size: 0.9rem;">Risk-Adjusted Return</h5>
+                        <p style="font-size: 2rem; font-weight: bold; margin: 8px 0;">21x</p>
+                        <p style="margin: 0; font-size: 0.85rem;">MAR Ratio vs S&P</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Live Trading Performance (Sept 2024 - Present)</h4>
+            <div style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 15px; padding: 30px; margin: 30px auto; max-width: 900px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                    <div style="text-align: center; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">CAGR</h5>
+                        <p style="font-size: 1.8rem; font-weight: bold; color: #27ae60;">42.86%</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">Max Drawdown</h5>
+                        <p style="font-size: 1.8rem; font-weight: bold; color: #e74c3c;">-8.7%</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">Volatility</h5>
+                        <p style="font-size: 1.8rem; font-weight: bold; color: #f39c12;">14.2%</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">Sharpe Ratio</h5>
+                        <p style="font-size: 1.8rem; font-weight: bold; color: #9b59b6;">2.87</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                        <h5 style="color: #2c3e50; margin-bottom: 10px;">MAR Ratio</h5>
+                        <p style="font-size: 1.8rem; font-weight: bold; color: #1abc9c;">4.93</p>
+                    </div>
+                </div>
+                
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px;">
+                    <p style="margin: 0; color: #856404;"><strong>Note:</strong> Live trading period shows higher volatility than backtested results, yet maintains superior risk-adjusted returns with MAR ratio significantly above target of 2.0.</p>
+                </div>
+            </div>
+            
+            <h4>Personal Trading Performance - Justin Kay (2020-2025)</h4>
+            <div style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 15px; padding: 30px; margin: 30px auto; max-width: 900px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                <table class="performance-table" style="max-width: 850px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Period</th>
+                            <th>CAGR</th>
+                            <th>Max DD</th>
+                            <th>MAR</th>
+                            <th>Sharpe</th>
+                            <th>Vol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-label">2020</td>
+                            <td style="color: #27ae60; font-weight: bold;">36.15%</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td class="metric-label">2021</td>
+                            <td style="color: #27ae60; font-weight: bold;">69.40%</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">2022</td>
+                            <td style="color: #e74c3c; font-weight: bold;">-9.57%</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                            <td style="color: #95a5a6;">****</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td class="metric-label">2023</td>
+                            <td style="color: #27ae60; font-weight: bold;">35.52%</td>
+                            <td>-7.69%</td>
+                            <td>4.62</td>
+                            <td>1.52</td>
+                            <td>18.03%</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-label">2024</td>
+                            <td style="color: #27ae60; font-weight: bold;">18.30%</td>
+                            <td>-15.53%</td>
+                            <td>1.18</td>
+                            <td>0.80</td>
+                            <td>16.26%</td>
+                        </tr>
+                        <tr style="background: #3498db; color: white;">
+                            <td style="font-weight: bold; background: #3498db;">2025 YTD</td>
+                            <td style="font-weight: bold;">26.22%</td>
+                            <td>-4.67%</td>
+                            <td>5.61</td>
+                            <td>1.33</td>
+                            <td>16.84%</td>
+                        </tr>
+                        <tr style="background: #27ae60; color: white;">
+                            <td style="font-weight: bold; background: #27ae60;">Live Trades</td>
+                            <td style="font-weight: bold;">26.22%</td>
+                            <td>-4.67%</td>
+                            <td>5.61</td>
+                            <td>1.33</td>
+                            <td>16.84%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="background: #e8f5e8; border: 1px solid #27ae60; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <h5 style="color: #27ae60; margin-bottom: 10px;">Performance Highlights</h5>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <p style="margin: 5px 0; color: #2c3e50;"><strong>Best Year:</strong> 2021 (+69.40%)</p>
+                            <p style="margin: 5px 0; color: #2c3e50;"><strong>Worst Year:</strong> 2022 (-9.57%)</p>
+                        </div>
+                        <div>
+                            <p style="margin: 5px 0; color: #2c3e50;"><strong>Current MAR Ratio:</strong> 5.61</p>
+                            <p style="margin: 5px 0; color: #2c3e50;"><strong>Market Correlation (2025):</strong> 0.611</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <p style="margin: 0; color: #856404; font-size: 0.9rem;"><strong>Note:</strong> **** indicates data not accessible for earlier periods. Risk metrics available from 2023 onward reflect implementation of enhanced risk management systems.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>Risk Management Framework</h3>
+            
+            <h4>Strategy Correlation Matrix</h4>
+            <div style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 15px; padding: 30px; margin: 30px auto; max-width: 900px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                <table class="correlation-table">
+                    <thead>
+                        <tr style="background: #2c3e50; color: white;">
+                            <th style="text-align: left;">Strategy</th>
+                            <th>Paike</th>
+                            <th>Kuu</th>
+                            <th>Kratt</th>
+                            <th>Kou</th>
+                            <th>Pikker</th>
+                            <th>S&P 500</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold; background: #ecf0f1; text-align: left; padding-left: 12px;">Paike</td>
+                            <td style="background: #27ae60; color: white; font-weight: bold;">1.00</td>
+                            <td>-0.08</td>
+                            <td>0.12</td>
+                            <td>-0.15</td>
+                            <td>0.03</td>
+                            <td style="background: #f39c12; color: white;">0.18</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="font-weight: bold; background: #ecf0f1; text-align: left; padding-left: 12px;">Kuu</td>
+                            <td>-0.08</td>
+                            <td style="background: #27ae60; color: white; font-weight: bold;">1.00</td>
+                            <td>0.07</td>
+                            <td>-0.11</td>
+                            <td>-0.09</td>
+                            <td style="background: #f39c12; color: white;">0.14</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; background: #ecf0f1; text-align: left; padding-left: 12px;">Kratt</td>
+                            <td>0.12</td>
+                            <td>0.07</td>
+                            <td style="background: #27ae60; color: white; font-weight: bold;">1.00</td>
+                            <td>0.05</td>
+                            <td>-0.04</td>
+                            <td style="background: #f39c12; color: white;">0.31</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="font-weight: bold; background: #ecf0f1; text-align: left; padding-left: 12px;">Kou</td>
+                            <td>-0.15</td>
+                            <td>-0.11</td>
+                            <td>0.05</td>
+                            <td style="background: #27ae60; color: white; font-weight: bold;">1.00</td>
+                            <td>0.09</td>
+                            <td style="background: #f39c12; color: white;">0.02</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; background: #ecf0f1; text-align: left; padding-left: 12px;">Pikker</td>
+                            <td>0.03</td>
+                            <td>-0.09</td>
+                            <td>-0.04</td>
+                            <td>0.09</td>
+                            <td style="background: #27ae60; color: white; font-weight: bold;">1.00</td>
+                            <td style="background: #f39c12; color: white;">0.11</td>
+                        </tr>
+                        <tr style="background: #3498db; color: white;">
+                            <td style="font-weight: bold; background: #3498db; text-align: left; padding-left: 12px;">Combined Fund</td>
+                            <td>0.42</td>
+                            <td>0.38</td>
+                            <td>0.51</td>
+                            <td>0.33</td>
+                            <td>0.29</td>
+                            <td style="font-weight: bold; font-size: 1rem;">0.22</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: center; margin-top: 30px;">
+                    <div style="text-align: center;">
+                        <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #3498db, #2980b9); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                            <span style="color: white; font-size: 2rem; font-weight: bold;">0.22</span>
+                        </div>
+                        <p style="font-weight: bold; color: #2c3e50;">Overall Fund Correlation to S&P 500</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 15px;"><strong>Diversification Benefit:</strong> The combined fund maintains low correlation to the market while individual strategies show minimal inter-correlation, providing true diversification.</p>
+                        <p style="margin-bottom: 15px;"><strong>Strategy Independence:</strong> Most strategy pairs show near-zero or negative correlations, reducing concentration risk.</p>
+                        <p><strong>Market Exposure:</strong> Kratt strategy shows highest market correlation (0.31) as expected for long volatility positions during trending markets.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Strategy-Specific Risk Management</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px 0;">
+                <div style="background: white; border: 2px solid #e9ecef; padding: 20px; border-radius: 10px;">
+                    <h5 style="color: #2c3e50; margin-bottom: 15px;">Dual Momentum Controls</h5>
+                    <ul style="color: #666; line-height: 1.6;">
+                        <li>Minimal leverage exposure through equity holdings</li>
+                        <li>Only "Medium" strategy uses UPRO (3x leverage) during "risk on" periods</li>
+                        <li>Algorithmic risk-off protection during market turbulence</li>
+                        <li>Monthly rebalancing for Slow/Medium, up to daily for Fast strategy</li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; border: 2px solid #e9ecef; padding: 20px; border-radius: 10px;">
+                    <h5 style="color: #2c3e50; margin-bottom: 15px;">Options Strategy Controls</h5>
+                    <ul style="color: #666; line-height: 1.6;">
+                        <li>Conservative position sizing (≤2% per strategy)</li>
+                        <li>Daily performance monitoring with auto-scaling</li>
+                        <li>All defined risk trades (spreads, no naked options)</li>
+                        <li>1.5x deviation triggers strategy pause/scaling</li>
+                        <li>Hard stop losses and profit targets for all positions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>Team</h3>
+            <h4>Justin Kay, JD - Founder</h4>
+            <ul>
+                <li>26 years experience in equity markets</li>
+                <li>20 years experience in options trading</li>
+                <li>15 years practicing law in financial services sector, including tax law</li>
+                <li>Education: BA - North Carolina State University; JD - Elon University School of Law</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>Operational Infrastructure</h3>
+            <h4>Service Providers</h4>
+            <ul>
+                <li><strong>Fund Administrator:</strong> Repool, Inc. (or designated alternative)</li>
+                <li><strong>Prime Broker:</strong> Charles Schwab & Co., Inc. (or designated alternative)</li>
+                <li><strong>Custodian:</strong> Repool, Inc. (or designated alternative)</li>
+            </ul>
+            
+            <h4>Technology Infrastructure</h4>
+            <ul>
+                <li><strong>Trading Platforms:</strong> Automated systems including Option Omega and TradeSteward, with plans for proprietary infrastructure</li>
+                <li><strong>Research Environment:</strong> Backtesting conducted through Option Omega platform</li>
+            </ul>
+            
+            <h4>Fund Structure & Terms</h4>
+            <ul>
+                <li><strong>Legal Structure:</strong> Delaware LP (subject to creation documentation)</li>
+                <li><strong>Tax Structure:</strong> Pass-through entity</li>
+                <li><strong>Management Fee:</strong> 2% annually (charged monthly)</li>
+                <li><strong>Performance Fee:</strong> 20% of profits above high water mark</li>
+                <li><strong>Minimum Investment:</strong> $50,000</li>
+                <li><strong>Liquidity:</strong> Quarterly subscriptions/redemptions with 45-day notice</li>
+                <li><strong>Lock-up Period:</strong> Initial 90 days</li>
+            </ul>
+        </div>
+
+        <!-- Disclaimer Footer for Info Page -->
+        <footer style="background: #2c3e50; color: #bdc3c7; padding: 30px 20px; text-align: center; font-size: 0.9rem; line-height: 1.6; margin-top: 40px;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <p style="margin: 0;">*Copyright 2025 Ashlar Investments, LLC. All information contained is proprietary and confidential. Any information contained herein does not constitute an offer to sell or solicitation of an offer to buy securities. Investing involves risk, including the potential loss of principal, and does not contemplate any individuals personal risk or circumstances. Consult your own advisor.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Show first section immediately
+        document.querySelector('.hero').classList.add('visible');
+
+        function showInfoPage() {
+            document.getElementById('mainContent').classList.add('hidden');
+            document.getElementById('infoPage').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            document.getElementById('mainContent').classList.remove('hidden');
+            document.getElementById('infoPage').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create email content
+            const emailBody = `
+New Investment Interest Form Submission:
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Interest Level: ${data.interest}
+Investment Range: ${data.amount || 'Not specified'}
+
+Comments:
+${data.message || 'None provided'}
+            `;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:justinwkay@gmail.com?subject=Investment Interest - ${data.name}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Thank you for your interest! Your default email client should open with the message pre-filled. If it doesn\'t open automatically, please send your information directly to justinwkay@gmail.com');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Load all strategy images and logos
+        document.addEventListener('DOMContentLoaded', async function() {
+            const logoImg = document.getElementById('ashlarLogo');
+            
+            // Load main logo
+            try {
+                const imageData = await window.fs.readFile('Ashlar Logo.jpg');
+                const blob = new Blob([imageData], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                logoImg.src = imageUrl;
+                console.log('Ashlar logo loaded successfully');
+            } catch (error) {
+                console.log('Error loading Ashlar logo:', error);
+            }
+
+            // Load strategy images
+            const strategyImages = [
+                { id: 'paikeImg', filename: 'Paike.jpg' },
+                { id: 'kuuImg', filename: 'Kuu.jpg' },
+                { id: 'krattImg', filename: 'Kratt.jpg' },
+                { id: 'kouImg', filename: 'Kou.jpg' },
+                { id: 'pikkerImg', filename: 'Pikker.jpg' }
+            ];
+
+            for (const { id, filename } of strategyImages) {
+                try {
+                    const imageData = await window.fs.readFile(filename);
+                    const blob = new Blob([imageData], { type: 'image/jpeg' });
+                    const imageUrl = URL.createObjectURL(blob);
+                    document.getElementById(id).src = imageUrl;
+                    console.log(`${filename} loaded successfully`);
+                } catch (error) {
+                    console.log(`Error loading ${filename}:`, error);
+                }
+            }
+
+            // Load group logo
+            try {
+                const groupImageData = await window.fs.readFile('Group Logo.jpg');
+                const blob = new Blob([groupImageData], { type: 'image/jpeg' });
+                const imageUrl = URL.createObjectURL(blob);
+                document.getElementById('groupLogoImg').src = imageUrl;
+                console.log('Group logo loaded successfully');
+            } catch (error) {
+                console.log('Error loading group logo:', error);
+            }
+        });
+
+        // Smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>
+                    
