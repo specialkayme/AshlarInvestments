@@ -1026,7 +1026,7 @@
                     interest_level: formData.get('interest'),
                     investment_range: formData.get('amount') || 'Not specified',
                     message: formData.get('message') || 'No additional comments',
-                    to_email: 'justinwkay@gmail.com'
+                    to_email: 'info@theashlarfund.com'
                 };
 
                 // Send email using EmailJS
@@ -1038,7 +1038,7 @@
                     })
                     .catch(function(error) {
                         console.log('FAILED...', error);
-                        showStatus('Sorry, there was an error sending your information. Please try again or contact us directly at justinwkay@gmail.com', 'error');
+                        showStatus('Sorry, there was an error sending your information. Please try again or contact us directly at info@theashlarfund.com', 'error');
                     })
                     .finally(function() {
                         // Reset button state
